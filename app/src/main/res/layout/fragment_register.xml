@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical">
+
+
+    <EditText
+        android:id="@+id/regit_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="用户名"
+        android:inputType="text"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/regit_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入密码"
+        android:inputType="textPassword"
+        android:singleLine="true" />
+    <EditText
+        android:id="@+id/regit_password2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="再次输入"
+        android:inputType="textPassword"
+        android:singleLine="true" />
+
+    <EditText
+        android:id="@+id/regit_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="邮箱"
+        android:inputType="textEmailAddress"
+        android:singleLine="true" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/regit_email_ver"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:hint="验证码"
+            android:inputType="number"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/regit_getemailver"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="获取验证码"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+    <android.support.v7.widget.ButtonBarLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/regit_register"
+            android:layout_width="match_parent"
+            android:text="注册"
+            android:layout_height="wrap_content" />
+
+    </android.support.v7.widget.ButtonBarLayout>
+
+
+
+</LinearLayout>
