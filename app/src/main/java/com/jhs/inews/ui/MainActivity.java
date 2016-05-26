@@ -68,13 +68,12 @@ public class MainActivity extends BaseActivity
         imageFragment = new ImageFragment();
         weatherFragment = new WeatherFragment();
         collectFragment = new CollectFragment();
-
+        showFragment(R.id.frame_content, newsFragment);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        showFragment(R.id.frame_content, newsFragment);
 
         User userInfo = User.getCurrentUser(this, User.class);
         if (userInfo != null) {
@@ -198,5 +197,9 @@ public class MainActivity extends BaseActivity
 
         }
     }
+
+
+
+
 
 }

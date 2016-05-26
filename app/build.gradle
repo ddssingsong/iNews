@@ -41,4 +41,5 @@ dependencies {
     compile 'com.squareup.okhttp:okhttp:2.4.0'
     compile 'com.squareup.okio:okio:1.4.0'
     compile 'junit:junit:4.12'
+    compile 'com.uwetrottmann.photoview:library:1.2.4'
 }

@@ -1,5 +1,6 @@
 package com.jhs.inews.ui.image;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -155,6 +156,10 @@ public class ImageFragment extends BaseFragment implements ImageAdapter.OnItemCl
      */
     @Override
     public void onItemClick(View view, int position) {
+        ImageInfo iamgeinfo=newsInfoList.get(position);
+        Intent intent =new Intent(getActivity(),PhotoActivity.class);
+        intent.putExtra("url",iamgeinfo.getImg());
+        startActivity(intent);
 
     }
 
