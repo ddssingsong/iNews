@@ -10,7 +10,7 @@
 
 
     <style name="Fullscreen" parent="@android:style/Theme.Black.NoTitleBar.Fullscreen">
-        <item name="android:background">@drawable/logo_bg</item>
+        <item name="android:background">@drawable/bg_logo</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
