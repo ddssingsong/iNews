@@ -80,7 +80,6 @@ public class MainActivity extends BaseActivity
             // 显示头像和名称
             String username = (String) User.getObjectByKey(this, "username");
             user_name.setText(username);
-
             File file = new File(Environment.getExternalStorageDirectory(), "clip_photo.jpg");
             Uri uri = Uri.fromFile(file);
             user_icon.setImageURI(uri);
@@ -127,11 +126,9 @@ public class MainActivity extends BaseActivity
         } else if (id == R.id.nav_gallery) {
             showFragment(R.id.frame_content, imageFragment);
             setTitle("图片");
-
         } else if (id == R.id.nav_slideshow) {
             showFragment(R.id.frame_content, weatherFragment);
             setTitle("天气");
-
         } else if (id == R.id.nav_manage) {
             if (flag) {
                 showFragment(R.id.frame_content, collectFragment);

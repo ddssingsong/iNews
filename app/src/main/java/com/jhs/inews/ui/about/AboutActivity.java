@@ -1,6 +1,7 @@
 package com.jhs.inews.ui.about;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -29,7 +30,11 @@ public class AboutActivity extends BaseActivity implements View.OnClickListener 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         setTitle("关于我");
+
+        tvUrl.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
+        tvUrl.getPaint().setAntiAlias(true);
         tvUrl.setOnClickListener(this);
+
     }
 
     @Override

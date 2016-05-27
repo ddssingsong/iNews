@@ -56,7 +56,7 @@ public class NewsListFragment extends BaseFragment implements SwipeRefreshLayout
 
     @Override
     protected boolean onBackPressed() {
-        return true;
+        return false;
     }
 
     @Override
@@ -160,7 +160,10 @@ public class NewsListFragment extends BaseFragment implements SwipeRefreshLayout
                         newsInfoList = list;
                     } else {
                         adapter.addDataToAdapter(list, false);
-                        newsInfoList.addAll(list);
+                        if(list!=null){
+                            newsInfoList.addAll(list);
+                        }
+
                     }
                     swipe_refresh.setRefreshing(false);
 

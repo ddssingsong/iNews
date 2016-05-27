@@ -63,7 +63,6 @@ public class BaseActivity extends AppCompatActivity implements BaseFragment.Back
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         if (currentFragment != null) {
-            currentFragment.onPause();
             ft.hide(currentFragment);
         }
         String tag = toFragment.getClass().getSimpleName();
@@ -71,13 +70,12 @@ public class BaseActivity extends AppCompatActivity implements BaseFragment.Back
         if (fragment == null) {
             ft.add(contentID, toFragment, tag);
         } else {
-            fragment.onResume();
             ft.show(toFragment);
         }
         if (isAdd2Back) {
             ft.addToBackStack(tag);
         }
-        ft.commitAllowingStateLoss();
+        ft.commit();
         currentFragment = toFragment;
     }
 

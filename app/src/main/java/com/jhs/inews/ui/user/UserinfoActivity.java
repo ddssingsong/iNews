@@ -23,14 +23,9 @@ public class UserinfoActivity extends BaseActivity implements BaseFragment.BaseF
         setSupportActionBar(toolbar);
         setTitle("用户信息");
         userinfoFragment=new UserinfoFragment();
+        replaceFragment(R.id.user_content,userinfoFragment);
     }
 
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        showFragment(R.id.user_content,userinfoFragment);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -58,6 +53,7 @@ public class UserinfoActivity extends BaseActivity implements BaseFragment.BaseF
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
+
 
         }
     }
