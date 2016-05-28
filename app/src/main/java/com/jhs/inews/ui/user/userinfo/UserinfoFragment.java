@@ -262,9 +262,11 @@ public class UserinfoFragment extends BaseFragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
             if (hasSdcard()) {
-                tempFile = new File(Environment.getExternalStorageDirectory(),
-                        PHOTO_FILE_NAME);
-                crop(Uri.fromFile(tempFile));
+                if(data!=null){
+                    tempFile = new File(Environment.getExternalStorageDirectory(),
+                            PHOTO_FILE_NAME);
+                    crop(Uri.fromFile(tempFile));
+                }
             } else {
                 ToastUtil.showToast(getActivity(), "未找到存储卡，无法存储照片！");
             }
