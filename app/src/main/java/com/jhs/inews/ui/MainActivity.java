@@ -28,6 +28,8 @@ import com.jhs.inews.weather.widget.WeatherFragment;
 
 import java.io.File;
 
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class MainActivity extends BaseActivity
@@ -47,6 +49,7 @@ public class MainActivity extends BaseActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ShareSDK.initSDK(this);
         initView();
         initListener();
     }
@@ -157,7 +160,19 @@ public class MainActivity extends BaseActivity
      * 各种分享
      */
     private void handleShare() {
+          ShareSDK.initSDK(this);
+          OnekeyShare oks = new OnekeyShare();
+          //关闭sso授权
+          oks.disableSSOWhenAuthorize();
 
+          // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
+          oks.setTitleUrl("https://github.com/ddssingsong/iNews.git");
+          // text是分享文本，所有平台都需要这个字段
+          oks.setText("大帅出品，必属精品");
+          // url仅在微信（包括好友和朋友圈）中使用
+          oks.setUrl("https://github.com/ddssingsong/iNews.git");
+         // 启动分享GUI
+          oks.show(this);
 
     }
 
@@ -196,7 +211,9 @@ public class MainActivity extends BaseActivity
     }
 
 
-
-
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ShareSDK.stopSDK(this);
+    }
 }

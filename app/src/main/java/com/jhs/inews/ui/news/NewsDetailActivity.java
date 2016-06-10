@@ -34,6 +34,8 @@ import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.CountListener;
 import cn.bmob.v3.listener.UpdateListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.onekeyshare.OnekeyShare;
 
 
 public class NewsDetailActivity extends BaseActivity {
@@ -202,6 +204,7 @@ public class NewsDetailActivity extends BaseActivity {
                 break;
             case R.id.action_repost:
                 //分享
+                handleShare();
                 break;
             case R.id.action_report:
                 //举报
@@ -209,6 +212,22 @@ public class NewsDetailActivity extends BaseActivity {
 
         }
 
+    }
+
+    private void handleShare() {
+        ShareSDK.initSDK(this);
+        OnekeyShare oks = new OnekeyShare();
+        //关闭sso授权
+        oks.disableSSOWhenAuthorize();
+
+        // titleUrl是标题的网络链接，仅在人人网和QQ空间使用
+        oks.setTitleUrl(news.getUrl());
+        // text是分享文本，所有平台都需要这个字段
+        oks.setText(news.getTitle());
+        // url仅在微信（包括好友和朋友圈）中使用
+        oks.setUrl(news.getUrl());
+        // 启动分享GUI
+        oks.show(this);
     }
 
 
