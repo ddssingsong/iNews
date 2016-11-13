@@ -1,2 +1,2 @@
 # iNews
-一个新闻浏览类的项目
+一款基于Material Design风格的新闻浏览App
